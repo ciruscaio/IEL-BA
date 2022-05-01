@@ -1,0 +1,13 @@
+Questão 2: SQL Server e Banco de Dados
+
+Forma de Entrega: Publicar o script em um repositório público do GitHub e encaminhar o link de acesso.
+
+1.	Construa (create) uma tabela que contenha os seguintes campos: código do departamento, nome do responsável pelo departamento, login do responsável, e-mail do responsável;
+2.	Após construção da tabela, desenvolva uma Stored Procedure que faça as seguintes instruções:
+ 	- Cadastre (insert) o departamento (código) e os dados do seu responsável (nome, login, e-mail) na tabela criada anteriormente;
+ 	- Caso, já exista um cadastro para esse departamento, atualizar (update) os dados do responsável (nome, login, email);
+  	- Esta procedure deverá receber os parâmetros: código do departamento, nome do responsável, login do responsável e e-mail;
+
+
+OBS: Definir os nomes dos campos e tipos de dados mais adequados para cada situação.
+
