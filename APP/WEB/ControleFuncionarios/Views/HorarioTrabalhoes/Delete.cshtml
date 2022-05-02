@@ -1,0 +1,95 @@
+﻿@model ControleFuncionarios.Models.HorarioTrabalho
+
+@{
+    ViewData["Title"] = "Deletar";
+}
+
+<h1>Delete</h1>
+
+<h3>Você deseja realmente deletar este horário, do funcionário?</h3>
+<div>
+    <h4>Horario de Trabalho</h4>
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            <label><b>Nome do Funcionário</b></label>
+        </dt>
+        <dd class="col-sm-10">
+            <label>@ViewBag.NomeFuncionario</label>
+        </dd>
+
+
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Funcionario_codigo)
+            </dt>
+            <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Funcionario_codigo)
+            </dd>*@
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dia_semana)
+        </dt>
+        <dd class="col-sm-10">
+            @*@Html.DisplayFor(model => model.Dia_semana)*@
+            @if (Model.Dia_semana == 1)
+            {
+                <label>Domingo</label>
+            }
+            else if (Model.Dia_semana == 2)
+            {
+                <label>Segunda</label>
+            }
+            else if (Model.Dia_semana == 3)
+            {
+                <label>Terça</label>
+            }
+            else if (Model.Dia_semana == 4)
+            {
+                <label>Quarta</label>
+            }
+            else if (Model.Dia_semana == 5)
+            {
+                <label>Quinta</label>
+            }
+            else if (Model.Dia_semana == 6)
+            {
+                <label>Sexta</label>
+            }
+            else
+            {
+                <label>Sábado</label>
+            }
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Hora_ini)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hora_ini)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Hora_fim)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hora_fim)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tempo_descanso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tempo_descanso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ch)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ch)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Codigo" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar para a Lista!</a>
+    </form>
+</div>

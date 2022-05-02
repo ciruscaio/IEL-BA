@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ControleFuncionarios.Models.HorarioTrabalho>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Novo horário!</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Funcionario_codigo)*@
+                <label><b>Nome do Funcionário</b></label>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dia_semana)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora_ini)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora_fim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tempo_descanso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ch)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @* @Html.DisplayFor(modelItem => item.Funcionario_codigo)*@
+                    @foreach (var fun in @ViewBag.Funcionarios)
+                    {
+                        if (fun.Value == item.Funcionario_codigo.ToString())
+                        {
+                            <label>@fun.Text</label>
+                        }
+                    }
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Dia_semana)*@
+                    @if (item.Dia_semana == 1)
+                    {
+                        <label>Domingo</label>
+                    }
+                    else if (item.Dia_semana == 2)
+                    {
+                        <label>Segunda</label>
+                    }
+                    else if (item.Dia_semana == 3)
+                    {
+                        <label>Terça</label>
+                    }
+                    else if (item.Dia_semana == 4)
+                    {
+                        <label>Quarta</label>
+                    }
+                    else if (item.Dia_semana == 5)
+                    {
+                        <label>Quinta</label>
+                    }
+                    else if (item.Dia_semana == 6)
+                    {
+                        <label>Sexta</label>
+                    }
+                    else
+                    {
+                        <label>Sábado</label>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hora_ini)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hora_fim)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tempo_descanso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ch)
+                </td>
+                <td>
+
+                    <a asp-action="Details" asp-route-id="@item.Codigo">Detalhes</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Codigo">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Codigo">Deletar</a>
+                </td>
+            </tr>
+        }
+        <center><input type="button" value="Imprimir Relatório" onClick="window.print()"/></center> 
+    </tbody>
+</table>
